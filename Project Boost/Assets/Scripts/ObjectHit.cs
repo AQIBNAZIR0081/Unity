@@ -3,7 +3,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ObjectHit : MonoBehaviour {
-    [SerializeField] float delayTime = 1.0f;
+    [SerializeField] float delayTime = 2.0f;
+    [SerializeField] AudioClip crash;
+    [SerializeField] AudioClip success;
+
+    AudioSource audioSource;
+    Movement movement;
+
+    private void Start() {
+        audioSource = GetComponent<AudioSource>();
+        movement = GetComponent<Movement>();
+    }
+
     private void OnCollisionEnter(Collision collision) {
         switch (collision.gameObject.tag) {
             case "Respawn":
@@ -19,16 +30,18 @@ public class ObjectHit : MonoBehaviour {
     }
 
     private void StartSuccessSequence() {
-        GetComponent<Movement>().enabled = false;
+        movement.enabled = false;
+        audioSource.PlayOneShot(success);
         Invoke("LoadNextLevel", delayTime);
     }
 
     private void StartCrashSequence() {
-        Movement movement = GetComponent<Movement>();
         if (movement != null) {
             movement.enabled = false;
         }
+        audioSource.PlayOneShot(crash);
         Invoke("ReloadLevel", delayTime);
+
     }
 
     private void LoadNextLevel() {
