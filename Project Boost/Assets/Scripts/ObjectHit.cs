@@ -6,6 +6,7 @@ public class ObjectHit : MonoBehaviour {
     [SerializeField] float delayTime = 2.0f;
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip success;
+    [SerializeField] ParticleSystem crashParticles;
 
     AudioSource audioSource;
     Movement movement;
@@ -39,6 +40,7 @@ public class ObjectHit : MonoBehaviour {
         if (movement != null) {
             movement.enabled = false;
         }
+        crashParticles.Play();
         audioSource.PlayOneShot(crash);
         Invoke("ReloadLevel", delayTime);
 
