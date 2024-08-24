@@ -2,15 +2,17 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ObjectHit : MonoBehaviour {
+public class ObjectHit : MonoBehaviour
+{
     [SerializeField] float delayTime = 2.0f;
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip success;
     [SerializeField] ParticleSystem crashParticles;
 
+
     AudioSource audioSource;
     Movement movement;
-
+    
     private void Start() {
         audioSource = GetComponent<AudioSource>();
         movement = GetComponent<Movement>();
@@ -33,7 +35,7 @@ public class ObjectHit : MonoBehaviour {
     private void StartSuccessSequence() {
         movement.enabled = false;
         audioSource.PlayOneShot(success);
-        Invoke("LoadNextLevel", delayTime);
+        Invoke("LoadNextLevel", delayTime);     
     }
 
     private void StartCrashSequence() {
@@ -43,7 +45,6 @@ public class ObjectHit : MonoBehaviour {
         crashParticles.Play();
         audioSource.PlayOneShot(crash);
         Invoke("ReloadLevel", delayTime);
-
     }
 
     private void LoadNextLevel() {
@@ -55,7 +56,7 @@ public class ObjectHit : MonoBehaviour {
         SceneManager.LoadScene(nextSceneIndex);
     }
 
-    private void ReloadLevel() {
+    private void ReloadLevel() { 
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentLevel);
     }
