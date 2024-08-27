@@ -53976,6 +53976,7 @@ GameObject:
   - component: {fileID: 6617491749250989008}
   - component: {fileID: 9132981105216674650}
   - component: {fileID: 2243648249447566188}
+  - component: {fileID: 32845729522067883}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -54234,6 +54235,18 @@ MonoBehaviour:
   RightThruster: {fileID: 16703249787393773}
   mainLeftThruster: {fileID: 8562107915851374950}
   mainRightThruster: {fileID: 389035974042981617}
+--- !u!114 &32845729522067883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7804403104069421835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7875970aef4f0a48bd0ffbbc8f14497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7881283847663738547
 GameObject:
   m_ObjectHideFlags: 0

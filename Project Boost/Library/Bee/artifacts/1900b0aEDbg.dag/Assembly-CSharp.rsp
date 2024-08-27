@@ -368,6 +368,8 @@
 "Assets/Assets/UnityTechnologies/EffectExamples/TutorialInfo/Scripts/Readme.cs"
 "Assets/Scripts/Movement.cs"
 "Assets/Scripts/ObjectHit.cs"
+"Assets/Scripts/Oscillator.cs"
+"Assets/Scripts/QuitApplication.cs"
 "Assets/Scripts/Spinner.cs"
 -langversion:9.0
 /deterministic
