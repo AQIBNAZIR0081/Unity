@@ -2,14 +2,8 @@ using UnityEngine;
 
 public class DriverScript : MonoBehaviour
 {
-    [SerializeField] float steerSpeed = 1.0f;
-    [SerializeField] float moveSpeed = 1.0f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float steerSpeed = 100.0f;
+    [SerializeField] float moveSpeed = 10.0f;
 
     // Update is called once per frame
     void Update()
@@ -20,4 +14,5 @@ public class DriverScript : MonoBehaviour
         transform.Rotate(0, 0, -horizontalMovement);
         transform.Translate(0, verticalMovement, 0);
     }
+
 }
