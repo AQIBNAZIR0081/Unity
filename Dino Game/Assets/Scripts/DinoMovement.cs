@@ -23,10 +23,9 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip appleBitingSound;
     public AudioClip CoinCollectionSound;
     public GameObject replayPannel;
-
     public GameObject cloud;
 
-
+    private Touch mobileScreenTouch;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,15 +47,21 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //For left and right movement
-        if (Input.GetKey(KeyCode.RightArrow))
+        if(mobileScreenTouch.tapCount > 0)
         {
-            controller.Move(RightMove * Time.fixedDeltaTime, crouch, jump);
-            anim.SetBool("isWalking",true);
-            currentHealth -= .5f;
-            HealthSlider.value = currentHealth;
+            mobileScreenTouch = Input.GetTouch(0);
+            Debug.Log("Touch position:" + mobileScreenTouch.position);
+            if (mobileScreenTouch.phase == TouchPhase.Moved)
+            {
+                controller.Move(RightMove * Time.fixedDeltaTime, crouch, jump);
+                anim.SetBool("isWalking", true);
+                currentHealth -= .5f;
+                HealthSlider.value = currentHealth;
+            }
         }
+        
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             controller.Move(leftMove * Time.fixedDeltaTime, crouch, jump);
             anim.SetBool("isWalking",true);
@@ -98,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Apple"))
+        if (collision.gameObject.name.StartsWith("Apple"))
         {
             audiosource.PlayOneShot(appleBitingSound);
             currentHealth += 3;
@@ -107,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("Coin"))
+        if (collision.gameObject.name.StartsWith("Coin"))
         {
             audiosource.PlayOneShot(CoinCollectionSound);
             scoreValue += 5;
@@ -123,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Cloud"))
+        if (collision.gameObject.name.StartsWith("Cloud"))
         {
             transform.gameObject.transform.parent = cloud.transform; //dino will become child of cloud
         }
