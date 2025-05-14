@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if(mobileScreenTouch.tapCount > 0)
         {
             mobileScreenTouch = Input.GetTouch(0);
-            Debug.Log("Touch position:" + mobileScreenTouch.position);
+            print("Touch position:" + mobileScreenTouch);
             if (mobileScreenTouch.phase == TouchPhase.Moved)
             {
                 controller.Move(RightMove * Time.fixedDeltaTime, crouch, jump);
