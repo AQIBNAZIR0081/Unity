@@ -1,6 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Photon.Pun.Demo.PunBasics;
 
 public class MuliplayerLauncher : MonoBehaviourPunCallbacks
 {
@@ -21,6 +22,6 @@ public class MuliplayerLauncher : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined Lobby Successfully");
-        PhotonNetwork.Instantiate(player.gameObject.name, Vector3.zero, Quaternion.identity, 0);
+        PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
     }
 }
