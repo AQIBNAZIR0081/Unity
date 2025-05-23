@@ -10,19 +10,25 @@ public class CharacterMovement : MonoBehaviour
     public float jumpForce = 10f;
     private bool isGrounded = true;
 
+    private AudioSource audioSource;
     private Coroutine slideCoroutine;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         animator.SetBool("isRunning", false);
         animator.SetBool("isJumping", false);
         animator.SetBool("isSliding", false);
+
+        audioSource.Play();
+        audioSource.loop = true; // Loop the audio
     }
 
     void Update()
     {
+
         // Run
         if (Input.GetKeyDown(KeyCode.R))
         {
