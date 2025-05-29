@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: baffdadaddd772d4484d9d75402754c7
+guid: 940735e788ee6e445b8fbf842f2b3d38
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -116,10 +116,10 @@ TextureImporter:
       name: donat_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 238
-        height: 250
+        x: 6
+        y: 55
+        width: 225
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
