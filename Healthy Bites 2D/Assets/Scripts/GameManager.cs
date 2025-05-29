@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    // Singleton instance of GameManager
     public static GameManager Instance;
 
     public int health = 30;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     private int currentHealth;
 
+    // Ensure this script is a singleton
     void Awake()
     {
         if (Instance == null)
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Use this for initialization
+    // Start is called before the first frame update
     void Start()
     {
         currentHealth = health;
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
         winText.SetActive(false);
     }
 
+    // This method is called when a food item is clicked
     public void FoodClicked(string tag)
     {
         if(tag == "HealthyFood")
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
         healthText.text = "Health: " + currentHealth.ToString();
     }
 
+    // Check the game state after each food click
     private void CheckGameState()
     {
         if (currentHealth >= 60)

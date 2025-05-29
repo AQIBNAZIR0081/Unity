@@ -5,11 +5,6 @@ public class FoodItems : MonoBehaviour
     public float fallSpeed = 2f;
     private float destroyY = -5f;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         // Move downward
