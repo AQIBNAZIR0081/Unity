@@ -8,18 +8,11 @@ public class InstantiateFood : MonoBehaviour
     private int foodIndex;
     private Coroutine coroutine;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartInstantiating();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void StartInstantiating()
     {
         coroutine = StartCoroutine(InstantiateFoodCoroutine());
