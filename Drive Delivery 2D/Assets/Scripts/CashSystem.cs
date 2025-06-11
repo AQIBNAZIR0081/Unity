@@ -5,9 +5,9 @@ namespace Assets.Scripts
 {
     public class CashSystem : MonoBehaviour
     {
-        [SerializeField] private int cashAmount = 0; // Initial cash amount
         [SerializeField] private Text cashText; // UI Text component to display cash
 
+        private int cashAmount = 0; // Initial cash amount
         private const string CASH_KEY = "Cash"; // Key for PlayerPrefs
         // Use this for initialization
         void Start()

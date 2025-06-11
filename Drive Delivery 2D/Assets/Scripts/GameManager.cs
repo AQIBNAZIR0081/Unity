@@ -21,4 +21,10 @@ public class GameManager : MonoBehaviour
 
         cashSystem?.ResetCash(); // Reset cash amount in CashSystem
     }
+
+    public void OnClickMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu"); // Load the Main Menu scene
+        cashSystem?.ResetCash(); // Reset cash amount in CashSystem
+    }
 }

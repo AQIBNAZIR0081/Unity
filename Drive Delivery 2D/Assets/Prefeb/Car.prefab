@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6830669868193989905}
   - component: {fileID: 8049159604360447110}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,10 +353,11 @@ GameObject:
   - component: {fileID: 6680400401857494002}
   - component: {fileID: 3787107135726486487}
   - component: {fileID: 1148535949419583867}
+  - component: {fileID: 3508808833997926242}
   - component: {fileID: 2029833981746323113}
   - component: {fileID: 3507520019845683434}
   - component: {fileID: 8622053656525004752}
-  - component: {fileID: 3508808833997926242}
+  - component: {fileID: 8051794647200176400}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -508,56 +509,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.82, y: 3.54}
   m_EdgeRadius: 0
---- !u!114 &2029833981746323113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5678445312578213021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e8aa83874fb3c4f9117688b7afe306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  steerSpeed: 100
-  moveSpeed: 10
---- !u!114 &3507520019845683434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5678445312578213021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89a4e8e5a14f3f64dac95ede91f1c1cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthSlider: {fileID: 2220762609237047437}
---- !u!114 &8622053656525004752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5678445312578213021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea419a412d54294ebe963bded8d0ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyDelay: 0.5
-  hasPackageColor:
-    serializedVersion: 2
-    rgba: 4294957568
-  noPackageColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  CarSound: {fileID: 8300000, guid: 9a3c0972d189dc7469e62a8d13223778, type: 3}
-  PackageSound: {fileID: 8300000, guid: d01e5f048aa8da94eb0c7616394b049e, type: 3}
-  PackageDeliverSound: {fileID: 8300000, guid: 96deff60cceeda94ea1b945102ee9661, type: 3}
 --- !u!82 &3508808833997926242
 AudioSource:
   m_ObjectHideFlags: 0
@@ -655,6 +606,71 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2029833981746323113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678445312578213021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e8aa83874fb3c4f9117688b7afe306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steerSpeed: 100
+  moveSpeed: 10
+--- !u!114 &3507520019845683434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678445312578213021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a4e8e5a14f3f64dac95ede91f1c1cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthSlider: {fileID: 2220762609237047437}
+  carDamageSoundClip: {fileID: 8300000, guid: 8d2d5caa845e4354dbc7e9bffeed04ad, type: 3}
+  GameOverPanel: {fileID: 0}
+--- !u!114 &8622053656525004752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678445312578213021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea419a412d54294ebe963bded8d0ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 0.5
+  hasPackageColor:
+    serializedVersion: 2
+    rgba: 4294957568
+  noPackageColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  CarSound: {fileID: 8300000, guid: 9a3c0972d189dc7469e62a8d13223778, type: 3}
+  PackageSound: {fileID: 8300000, guid: d01e5f048aa8da94eb0c7616394b049e, type: 3}
+  PackageDeliverSound: {fileID: 8300000, guid: 96deff60cceeda94ea1b945102ee9661, type: 3}
+--- !u!114 &8051794647200176400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678445312578213021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9697a0cb8bb7d904dbd431b3489175f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cashText: {fileID: 0}
 --- !u!1 &6984526012439883844
 GameObject:
   m_ObjectHideFlags: 0

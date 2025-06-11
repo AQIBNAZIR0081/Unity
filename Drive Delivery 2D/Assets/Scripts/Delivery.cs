@@ -11,7 +11,9 @@ namespace Assets.Scripts
         [SerializeField] AudioClip CarSound;
         [SerializeField] AudioClip PackageSound;
         [SerializeField] AudioClip PackageDeliverSound;
-        [SerializeField] CashSystem cashSystem;
+        
+        CashSystem cashSystem;
+        PackagesManager packagesManager;
 
         SpriteRenderer spriteRenderer;
         AudioSource audioSource;
@@ -23,16 +25,17 @@ namespace Assets.Scripts
             audioSource = GetComponent<AudioSource>();
             spriteRenderer = GetComponent<SpriteRenderer>();
 
-            if (audioSource.clip != null && !audioSource.isPlaying)
+            if (!audioSource.isPlaying)
             {
                 audioSource.loop = true;
                 audioSource.Play();
             }
 
             if (cashSystem == null)
-            {
                 cashSystem = FindAnyObjectByType<CashSystem>();
-            }
+
+            if(packagesManager == null)
+                packagesManager = FindAnyObjectByType<PackagesManager>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -50,6 +53,7 @@ namespace Assets.Scripts
                 audioSource.PlayOneShot(PackageDeliverSound);
                 spriteRenderer.color = noPackageColor;
                 cashSystem?.AddCash(); // Add cash when delivering the package
+                packagesManager?.UpdatePackageCount(); // Update package count in PackagesManager
             }
         }
 

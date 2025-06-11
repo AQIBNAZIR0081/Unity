@@ -37,7 +37,7 @@ public class PackagesManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        packageCount.text = "Packages Delivered: " + deliverPackages + "/" + totalPackages; // Update the UI text with the new count
+        packageCount.text = "PACKAGES: " + deliverPackages + "/" + totalPackages; // Update the UI text with the new count
     }
 
 
