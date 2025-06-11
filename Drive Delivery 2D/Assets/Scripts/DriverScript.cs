@@ -8,7 +8,6 @@ public class DriverScript : MonoBehaviour
     [SerializeField] float steerSpeed = 100.0f;
     [SerializeField] float moveSpeed = 15.0f;
     
-    bool isMoving;
 
     private void Awake()
     {
@@ -32,7 +31,6 @@ public class DriverScript : MonoBehaviour
 
     private void CarMovement()
     {
-        isMoving = true;
         // Get the horizontal and vertical input axes
         float horizontalMovement = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
         float verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
