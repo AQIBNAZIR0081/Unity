@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] CashSystem cashSystem; // Reference to the CashSystem script
+    CashSystem cashSystem; // Reference to the CashSystem script
 
     private void Start()
     {

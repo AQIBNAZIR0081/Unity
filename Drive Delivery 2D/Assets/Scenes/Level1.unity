@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34290833}
   - component: {fileID: 34290834}
+  - component: {fileID: 34290835}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -163,7 +164,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6b2fb92adb835478f572c79d787630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cashSystem: {fileID: 0}
+--- !u!114 &34290835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34290832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60e7556679ebcf45aadaff02f1648fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packageCount: {fileID: 0}
+  LevelCompletePanel: {fileID: 0}
 --- !u!4 &41369953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1790757668173265135, guid: 5c871a344f56e974e896c5270c936465, type: 3}
