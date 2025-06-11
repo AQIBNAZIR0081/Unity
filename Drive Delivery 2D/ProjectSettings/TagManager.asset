@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Package
   - Customer
+  - Obstacles
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Package
     uniqueID: 4117606723
+    locked: 0
+  - name: Health
+    uniqueID: 2619521737
     locked: 0
   m_RenderingLayers:
   - Default

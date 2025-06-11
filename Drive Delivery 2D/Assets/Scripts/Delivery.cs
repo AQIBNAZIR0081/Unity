@@ -5,39 +5,53 @@ namespace Assets.Scripts
 {
     public class Delivery : MonoBehaviour
     {
-        bool hasPackage;
-        [SerializeField] float destroyDelay = 0.5f;
+        [SerializeField] float destroyDelay = 0.2f;
         [SerializeField] Color32 hasPackageColor = new Color32(1, 1, 1, 1);
         [SerializeField] Color32 noPackageColor = new Color32(1, 1, 1, 1);
+        [SerializeField] AudioClip CarSound;
+        [SerializeField] AudioClip PackageSound;
+        [SerializeField] AudioClip PackageDeliverSound;
+        [SerializeField] CashSystem cashSystem;
 
         SpriteRenderer spriteRenderer;
+        AudioSource audioSource;
+        bool hasPackage;
 
         // Start is called before the first frame update
         void Start()
-        {
+        { 
+            audioSource = GetComponent<AudioSource>();
             spriteRenderer = GetComponent<SpriteRenderer>();
-        }
 
-        //private void OnCollisionEnter2D(Collision2D collision)
-        //{
-        //    Debug.Log("Collision detected with: " + collision.gameObject.name);
-        //}
+            if (audioSource.clip != null && !audioSource.isPlaying)
+            {
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+
+            if (cashSystem == null)
+            {
+                cashSystem = FindAnyObjectByType<CashSystem>();
+            }
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.tag == "Package" && !hasPackage)
             {
-                Debug.Log("PickUp " + collision.gameObject.name);
                 hasPackage = true;
                 spriteRenderer.color = hasPackageColor;
+                audioSource.PlayOneShot(PackageSound);
                 Destroy(collision.gameObject, destroyDelay);
             }
             else if (collision.tag == "Customer" && hasPackage)
             {
-                Debug.Log("Found " + collision.gameObject.name);
                 hasPackage = false;
+                audioSource.PlayOneShot(PackageDeliverSound);
                 spriteRenderer.color = noPackageColor;
+                cashSystem?.AddCash(); // Add cash when delivering the package
             }
         }
+
     }
 }

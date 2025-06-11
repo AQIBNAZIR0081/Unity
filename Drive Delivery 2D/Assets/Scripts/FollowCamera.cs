@@ -4,9 +4,16 @@ public class FollowCamera : MonoBehaviour
 {
     [SerializeField] GameObject TrackingTarget; // The target to follow
 
-    // Update is called once per frame
+
     void LateUpdate()
     {
-        transform.position = TrackingTarget.transform.position + new Vector3(0, 0, -10);
+        if(TrackingTarget != null)
+        {
+            transform.position = TrackingTarget.transform.position + new Vector3(0, 0, -10);
+        }
+        else
+        {
+            return;
+        }
     }
 }
