@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField] GameObject TrackingTarget; // The target to follow
 
+    private void Start()
+    {
+        SetTarget(DriverScript.driveInstance.gameObject); // Set the tracking target to the driver instance
+    }
 
     void LateUpdate()
     {
@@ -16,4 +21,10 @@ public class FollowCamera : MonoBehaviour
             return;
         }
     }
+
+    private void SetTarget(GameObject gameObject)
+    {
+        TrackingTarget = gameObject; // Set the tracking target to the specified game object
+    }
+
 }
